@@ -15,7 +15,7 @@ const ThemeProvider = (props) => {
     <React.Fragment>
     <ThemeContext.Provider value={initialValue}>
     {props.children}
-    </ThemeContext.Provider>;
+    </ThemeContext.Provider>
     </React.Fragment>
   )
 };
