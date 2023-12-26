@@ -18,7 +18,7 @@ const ThemeProvider = (props) => {
     </ThemeContext.Provider>
     </React.Fragment>
   )
-};
+}
 
 
 export { ThemeProvider, ThemeContext };
