@@ -15,7 +15,7 @@ const LocalThemedBox = () => {
       {localtheme === 'light' ? 'Toggle local theme to dark' : 'Toggle local theme to light'}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export { LocalThemedBox };
+export { LocalThemedBox }
