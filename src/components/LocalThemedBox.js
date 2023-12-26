@@ -1,21 +1,41 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from './ThemeProvider';
+import React, { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "./ThemeProvider";
 
 const LocalThemedBox = () => {
-  const {theme}=useContext(ThemeContext);
-  const{localtheme,setLocaltheme}=useState(theme);
+  const { theme: globalTheme } = useContext(ThemeContext);
+  const [localTheme, setLocalTheme] = useState(globalTheme);
 
+  const toggleLocalTheme = () => {
+    setLocalTheme((prevLocalTheme) =>
+      prevLocalTheme === "light" ? "dark" : "light"
+    );
+  };
+
+  // Update local theme when global theme changes
+  useEffect(() => {
+    setLocalTheme(globalTheme);
+  }, [globalTheme]);
 
   return (
-    <div className={`bg-${localtheme}`} style={{ width: '200px', height: '200px', border: '2px solid green' }} id="local-themed-box">
-      <p id="local-themed-text-container" className={`txt-${localtheme}`}>
+    <div
+      style={{ width: "200px", height: "200px", border: "2px solid green" }}
+      id="local-themed-box"
+      className={`bg-${localTheme}`}
+    >
+      <p id="local-themed-text-container" className={`txt-${localTheme}`}>
         Hiiii
       </p>
-      <button className={`btn btn-${localtheme} txt-${localtheme}`} id="themed-button" onClick={()=>setLocaltheme(localtheme==="light"?"dark":"light")}>
-      {localtheme === 'light' ? 'Toggle local theme to dark' : 'Toggle local theme to light'}
+      <button
+        id="local-theme-toggler"
+        className={`btn btn-${localTheme} txt-${localTheme}`}
+        onClick={toggleLocalTheme}
+      >
+        {localTheme === "light"
+          ? "Toggle local theme to dark"
+          : "Toggle local theme to light"}
       </button>
     </div>
   )
 }
 
-export { LocalThemedBox }
+export { LocalThemedBox };
