@@ -17,7 +17,7 @@ const Page = () => {
       </button>
       <LocalThemedBox />
     </div>
-  );
-};
+  )
+}
 
-export { Page };
+export { Page }
