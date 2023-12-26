@@ -8,7 +8,7 @@ const ThemeToggleButton = () => {
     <button className={`btn btn-${theme} txt-${theme}`} id="themed-button" onClick={()=>{toggleTheme }}>
      {theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
   </button>
-  );
-};
+  )
+}
 
-export { ThemeToggleButton };
+export { ThemeToggleButton }
