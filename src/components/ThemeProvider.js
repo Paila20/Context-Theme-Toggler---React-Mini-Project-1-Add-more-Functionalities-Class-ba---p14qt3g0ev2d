@@ -8,8 +8,10 @@ const ThemeProvider = (props) => {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
-
-  const themeClass = theme === "light" ? "light" : "dark";
+const initialValue={
+  theme,
+  toggleTheme,
+}
 
   return (
     <React.Fragment>
